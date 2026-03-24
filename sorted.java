@@ -31,7 +31,7 @@ public class sorted {
 
         //secound highest
       
-       List<Integer>secondh = list.stream().sorted(Comparator.reverseOrder()).toList().get(1);        
+       Comparable<Integer>secondh = list.stream().sorted(Comparator.reverseOrder()).toList().get(1);        
        System.out.println(secondh);
         
 
@@ -45,7 +45,7 @@ public class sorted {
 
         List<String> str= Arrays.asList("abhi","subhi","aman","raman");
         //sort alphabetically
-        str.stream().sorted((a, b) -> b.compareTo(a))
+        str.stream().sorted((a, b) -> b.compareTo(a));
 
 
 
