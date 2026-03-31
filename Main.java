@@ -65,6 +65,31 @@ public class Main {
                 System.out.println("Distinct Employees based on ID:");
                 distinctEmployees.forEach(e -> System.out.println(e.getId() + " " + e.getName()));
 
+
+                  //skip firt 2 youngest and print next 2 employee
+                System.out.println("Next 2 Youngest Employees after skipping first 2:");
+                empList.stream()
+                .sorted((e1,e2) -> Integer.compare(e1.getAge(),e2.getAge()))
+                .skip(2)
+                .limit(2)
+                .forEach(e -> System.out.println(e.getName() + " - " + e.getAge()));
+                //print 3 employee with lowest salary in IT department
+                System.out.println("3 Employees with lowest salary in HR Department:");
+                empList.stream()
+                .filter(e -> e.getDepartment().equals("IT"))
+                .sorted((e1,e2) -> Double.compare(e1.getSalary(),e2
+                   .getSalary()))
+                .limit(3)
+                .forEach(e -> System.out.println(e.getName() + " - " + e.getSalary()));
+            //remove duplicate employee name and print the first 5 employee
+            System.out.println("First 5 Employees with distinct names:");
+            empList.stream()
+            .filter(distinctByKey(e -> e.getName()))
+            .limit(5)   
+            .forEach(e -> System.out.println(e.getId() + " " + e.getName()));
+            
+           
+
     }
 
 }
